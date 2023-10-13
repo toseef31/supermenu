@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
   ],
+  plugins: [
+    '~/plugins/i18n.js'
+  ],
   i18n: {
     lazy: true,
     langDir: 'locales',

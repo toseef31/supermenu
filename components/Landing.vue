@@ -6,6 +6,21 @@
       ></div>
     </div>
 
+    <div class="ziafat-container py-24 bg-no-repeat bg-center bg-cover">
+      <h1
+        class="md:text-[45px] lg:text-[60px] xl:text-[112px] text-[25px] font-medium self-center text-[#202F8F] text-center"
+      >
+        الضیافہ
+      </h1>
+      <div class="md:w-3/4 mx-auto">
+        <p class="mb-0 text-16px md:text-[20px] lg:text-[25px] xl:text-[45px]">
+          نعمل بتقنية حديثة وضمان 99.9% عدم خروج النطاق عن الإنترنت ومتوافق مع
+          جميع مقاسات الشاشات(جوال,تابلت,كمبيوتر )ونتأكد من عملها بشكل صحيح قبل
+          تشغيل الخدمة
+        </p>
+      </div>
+    </div>
+
     <div v-for="item in 7">
       <div
         class="relative py-10 px-20 bg-[#A6ECF7] my-10 h-[150px] xl:h-[300px] flex justify-center"
@@ -57,3 +72,10 @@ useHead({
 const switchLocalePath = useSwitchLocalePath();
 const { locales } = useI18n();
 </script>
+
+<style scoped>
+.ziafat-container {
+  position: relative;
+  background-image: url("/images/doted-bg.jpg");
+}
+</style>
