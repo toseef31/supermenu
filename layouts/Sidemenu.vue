@@ -34,35 +34,11 @@
       </div>
 
       <div class="w-full">
-        <div class="w-full bg-green-600">
-          <!-- <slot /> -->
-          <div v-if="selectedRoute === '/control-panel/general-information'">
-            <GeneralInformation />
-          </div>
-
-          <div v-if="selectedRoute === '/control-panel/account-management'">
-            <AccountManagement />
-          </div>
-
-          <div v-if="selectedRoute === '/control-panel/menu-management'">
-            <MenuManagement />
-          </div>
-
-          <div v-if="selectedRoute === '/control-panel/account-information'">
-            <AccountInformation />
-          </div>
-
-          <div v-if="selectedRoute === '/control-panel/user-management'">
-            <UserManagement />
-          </div>
-
-          <div v-if="selectedRoute === '/control-panel/settings'">
-            <Settings />
-          </div>
+        <div class="py-5 px-2">
+          <slot />
         </div>
       </div>
     </div>
-
     <Footer />
   </div>
 </template>
@@ -70,8 +46,8 @@
 <script setup lang="ts">
 import { ref, Ref } from "vue";
 
-const selected: Ref<number> = ref(1);
-const selectedRoute = ref("/control-panel/general-information");
+const selected: Ref<number> = ref(0);
+const selectedRoute = ref("");
 const sideNavItems = ref([
   {
     id: 1,

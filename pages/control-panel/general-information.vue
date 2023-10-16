@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
   <div>
-    <slot />
+    <GeneralInformation />
   </div>
 </template>
