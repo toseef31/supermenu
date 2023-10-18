@@ -3,6 +3,39 @@
     <Header />
     <div class="flex flex-nowrap">
       <div class="w-[300px] col-span h-screen bg-blue-900">
+        <!-- <ul>
+          <li
+            class="h-10 w-full mb-2 rounded cursor-pointer text-white flex items-center px-2"
+          >
+            <div>General Information</div>
+          </li>
+          <li>
+            <div @click="accInfo = !accInfo">Account Information</div>
+            <ul class="" v-if="accInfo">
+              <li>
+                <div>one</div>
+              </li>
+              <li>
+                <div>two</div>
+              </li>
+              <li>
+                <div>three</div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div>Account Management</div>
+          </li>
+          <li>
+            <div>Menu Management</div>
+          </li>
+          <li>
+            <div>User Management</div>
+          </li>
+          <li>
+            <div>Settings</div>
+          </li>
+        </ul> -->
         <ul class="px-2 py-5">
           <NuxtLink
             :to="item.goto"
@@ -33,7 +66,7 @@
         </ul>
       </div>
 
-      <div class="w-full">
+      <div class="w-full h-screen overflow-y-auto">
         <div class="py-5 px-2">
           <slot />
         </div>
@@ -48,6 +81,7 @@ import { ref, Ref } from "vue";
 
 const selected: Ref<number> = ref(0);
 const selectedRoute = ref("");
+const accInfo = ref(false);
 const sideNavItems = ref([
   {
     id: 1,

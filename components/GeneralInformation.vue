@@ -51,7 +51,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 230px;
 }
 
 @keyframes growProgressBar {
