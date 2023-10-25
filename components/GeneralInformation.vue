@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="grid grid-cols-1 mb-8">
+    <div class="grid grid-cols-1 mb-8 md:ms-16">
       <div class="flex">
         <div
           class="h-[135px] w-[135px] bg-gray-200 rounded-full flex justify-center items-center self-center me-8"

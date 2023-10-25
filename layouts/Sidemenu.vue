@@ -7,7 +7,33 @@
       >
         <ul class="px-2 py-5">
           <li v-for="listItem in sideNavItems">
+            <div v-if="listItem?.goto">
+              <NuxtLink :to="listItem?.goto">
+                <div
+                  class="flex py-2 px-3 rounded-xl text-white mb-2 cursor-pointer"
+                  :class="{ 'bg-white text-blue-900': showIt === listItem.id }"
+                  @click="showListItems(listItem.id)"
+                >
+                  <span class="self-center h-6 w-6 me-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path
+                        d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+                        :fill="showIt === listItem.id ? '#1e3a8a' : '#ffffff'"
+                      />
+                    </svg>
+                  </span>
+
+                  <p
+                    class="text-sm font-bold"
+                    :class="{ 'text-blue-900': showIt === listItem.id }"
+                  >
+                    {{ listItem.name }}
+                  </p>
+                </div>
+              </NuxtLink>
+            </div>
             <div
+              v-if="listItem?.links"
               class="flex py-2 px-3 rounded-xl text-white mb-2 cursor-pointer"
               :class="{ 'bg-white text-blue-900': showIt === listItem.id }"
               @click="showListItems(listItem.id)"
@@ -60,7 +86,7 @@ const sideNavItems = ref([
   {
     id: 1,
     name: "General Information",
-    goto: "/control-panel/general-information",
+    goto: "/general-information",
   },
   {
     id: 2,
