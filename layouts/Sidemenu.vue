@@ -3,7 +3,7 @@
     <Header />
     <div class="flex flex-nowrap">
       <div
-        class="w-[300px] col-span h-[calc(100vh-176px)] overflow-auto bg-blue-900"
+        class="w-[300px] col-span h-[calc(100vh-176px)] overflow-auto bg-blue-900 hidden md:inline-flex"
       >
         <ul class="px-2 py-5">
           <li v-for="listItem in sideNavItems">
@@ -116,37 +116,37 @@ const sideNavItems = ref([
       {
         id: 31,
         name: "Categories",
-        goto: "/control-panel/account-management",
+        goto: "/menu-management/categories",
       },
       {
         id: 32,
         name: "Products",
-        goto: "/control-panel/account-management",
+        goto: "/menu-management/products",
       },
       {
         id: 33,
         name: "Communication accounts",
-        goto: "/control-panel/account-management",
+        goto: "/menu-management/communication-accounts",
       },
       {
         id: 34,
         name: "Themes",
-        goto: "/control-panel/account-management",
+        goto: "/menu-management/themes",
       },
       {
         id: 35,
         name: "Domain management",
-        goto: "/control-panel/account-management",
+        goto: "/menu-management/domain-management",
       },
       {
         id: 36,
         name: " Offers and discounts",
-        goto: "/control-panel/account-management",
+        goto: "/menu-management/offers-and-discounts",
       },
       {
         id: 37,
         name: "Ratings",
-        goto: "/control-panel/account-management",
+        goto: "/menu-management/ratings",
       },
     ],
   },

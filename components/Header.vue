@@ -25,7 +25,7 @@
             >
               En
             </div>
-            <span class="self-center h-6 w-6 me-8 cursor-pointer">
+            <span class="self-center h-6 w-6 me-4 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -54,7 +54,7 @@
               </svg>
             </span>
 
-            <span class="self-center h-6 w-6 me-8 cursor-pointer">
+            <span class="self-center h-6 w-6 me-4 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -69,11 +69,13 @@
           </div>
         </div>
         <div class="md:hidden inline-flex">
-          <div class="self-center">
-            <font-awesome-icon
-              icon="fa fa-bars"
-              class="text-white text-[34px] me-8"
-            />
+          <div class="w-10 h-10 self-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"
+                fill="#ffffff"
+              />
+            </svg>
           </div>
         </div>
       </div>
