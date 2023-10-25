@@ -1,0 +1,11 @@
+<svg id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#202f8f"/>
+      <stop offset="1" stop-color="#0cf"/>
+    </linearGradient>
+  </defs>
+  <g id="Color-" transform="translate(-200 -160)">
+    <path id="Facebook" d="M225.638,208H202.649A2.649,2.649,0,0,1,200,205.351v-42.7A2.649,2.649,0,0,1,202.649,160h42.7A2.649,2.649,0,0,1,248,162.649v42.7A2.649,2.649,0,0,1,245.351,208H233.119V189.412h6.24l.934-7.244h-7.174v-4.625c0-2.1.583-3.527,3.59-3.527l3.836,0v-6.479a51.384,51.384,0,0,0-5.589-.285c-5.531,0-9.318,3.376-9.318,9.575v5.343h-6.255v7.244h6.255V208Z" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

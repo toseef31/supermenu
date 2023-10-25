@@ -6,22 +6,37 @@
           <img src="/images/logo.png" alt="" />
         </div>
         <div class="flex self-center hidden md:inline-flex">
-          <div class="self-center">
-            <font-awesome-icon
-              icon="fa fa-moon"
-              class="text-white text-[34px] me-8"
-            />
-          </div>
+          <span class="self-center h-8 w-8 me-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="rotate-45"
+            >
+              <path
+                d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z"
+                fill="#fff"
+              />
+            </svg>
+          </span>
 
           <div class="flex" @click="showLanguage = !showLanguage">
-            <div class="text-white text-[41px] me-1">En</div>
-            <div class="self-center">
-              <font-awesome-icon
-                icon="fa fa-caret-down"
-                class="text-white text-3xl me-8"
-                :class="{ 'rotate-180': showLanguage }"
-              />
+            <div
+              class="self-center text-white text-[30px] font-semibold me-1 cursor-pointer"
+            >
+              En
             </div>
+            <span class="self-center h-6 w-6 me-8 cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                :class="{ 'rotate-180': showLanguage }"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  fill="#ffffff"
+                />
+              </svg>
+            </span>
           </div>
 
           <div
@@ -30,20 +45,27 @@
               (showUser = !showUser) && (register = false) && (login = false)
             "
           >
-            <div>
-              <font-awesome-icon
-                icon="fa fa-user"
-                class="text-white text-[34px] me-1"
-              />
-            </div>
+            <span class="self-center h-10 w-10 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+                  fill="#ffffff"
+                />
+              </svg>
+            </span>
 
-            <div>
-              <font-awesome-icon
-                icon="fa fa-caret-down"
-                class="text-white text-3xl"
+            <span class="self-center h-6 w-6 me-8 cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
                 :class="{ 'rotate-180': showUser }"
-              />
-            </div>
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                  fill="#ffffff"
+                />
+              </svg>
+            </span>
           </div>
         </div>
         <div class="md:hidden inline-flex">
