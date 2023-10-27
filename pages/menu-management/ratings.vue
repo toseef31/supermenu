@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <div>this is ratings section</div>
+  <MenuManagementRatings />
 </template>

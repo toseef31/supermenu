@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <MenuManagementCommunicationAccounts />
+  <SettingsTechnicalSupport />
 </template>

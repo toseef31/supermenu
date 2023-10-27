@@ -5,5 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <MenuManagementCommunicationAccounts />
+  <div>
+    <UserManagementUserPermissions />
+  </div>
 </template>

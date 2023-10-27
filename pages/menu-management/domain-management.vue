@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <div>this is domain management</div>
+  <MenuManagementDomainManagement />
 </template>

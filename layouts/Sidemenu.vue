@@ -157,12 +157,12 @@ const sideNavItems = ref([
       {
         id: 41,
         name: "Users",
-        goto: "/control-panel/account-management",
+        goto: "/user-management/users",
       },
       {
         id: 42,
         name: "Users permissions",
-        goto: "/control-panel/account-management",
+        goto: "/user-management/user-permissions",
       },
     ],
   },
@@ -172,13 +172,13 @@ const sideNavItems = ref([
     links: [
       {
         id: 51,
-        name: " Delete Account",
-        goto: "/control-panel/account-management",
+        name: "Delete Account",
+        goto: "/settings/delete-account",
       },
       {
         id: 52,
-        name: " Technical support",
-        goto: "/control-panel/account-management",
+        name: "Technical support",
+        goto: "/settings/technical-support",
       },
     ],
   },

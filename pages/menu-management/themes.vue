@@ -5,5 +5,5 @@ definePageMeta({
 </script>
 
 <template>
-  <div>this is themes section</div>
+  <MenuManagementThemes />
 </template>
