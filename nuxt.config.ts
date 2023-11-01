@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/i18n',
+    '@samk-dev/nuxt-vcalendar'
   ],
   plugins: [
     '~/plugins/i18n.js'

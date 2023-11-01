@@ -5,5 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div>this is offers and discounts</div>
+  <div>
+    <MenuManagementOffersDiscounts />
+  </div>
 </template>
