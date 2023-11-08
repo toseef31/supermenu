@@ -3,7 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/i18n',
-    '@samk-dev/nuxt-vcalendar'
+    '@samk-dev/nuxt-vcalendar',
+    '@nuxtjs/supabase'
   ],
   plugins: [
     '~/plugins/i18n.js'
@@ -35,4 +36,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  supabase: {
+    redirectOptions: {
+      login: '/',
+      callback: '/confirm',
+      exclude: [],
+    }
+  }
+
 })

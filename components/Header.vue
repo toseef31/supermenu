@@ -86,21 +86,28 @@
     >
       <a
         href="#"
-        class="block py-1 px-2 border-b border-red-400"
+        class="block py-1 px-2 border-b border-red-400 cursor-pointer"
         @click="(login = !login) && (register = false) && (otp = false)"
         >Login</a
       >
       <a
         href="#"
-        class="block px-2 py-1 border-b border-red-400"
+        class="block px-2 py-1 border-b border-red-400 cursor-pointer"
         @click="(register = !register) && (otp = false) && (login = false)"
         >Register</a
       >
       <a
         href="#"
-        class="block px-2 py-1"
+        class="block px-2 py-1 cursor-pointer"
         @click="(otp = !otp) && (login = false) && (register = false)"
+        :class="{' border-b border-red-400': currentRoute !== '/'}"
         >OTP</a
+      >
+      <a
+      v-if="currentRoute !== '/'"
+        @click="logoutUser"
+        class="block px-2 py-1 cursor-pointer"
+        >Logout</a
       >
     </div>
 
@@ -111,6 +118,7 @@
       <a href="#" class="block px-2 py-1">Arabic</a>
     </div>
 
+    <form @submit.prevent="loginUser">
     <div
       class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
       v-if="login"
@@ -119,24 +127,43 @@
         <label for="email" class="text-blue-900">Email</label>
         <input
           type="email"
-          class="h-8 w-full mb-4 rounded-lg focus:outline-blue-500"
+          class="h-8 w-full px-2 mb-4 rounded-lg focus:outline-blue-500 bg-white text-black"
+          v-model="signinForm.email"
         />
         <label for="email" class="text-blue-900">Password</label>
         <input
           type="password"
-          class="h-8 w-full mb-4 rounded-lg focus:outline-blue-500"
+          class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
+          v-model="signinForm.password"
         />
         <a href="#" class="border-b border-black text-black">Forgot password</a>
       </div>
-      <a
-        href="#"
-        @click="login = false"
-        class="block py-3 bg-blue-900 text-center"
-        >Login</a
-      >
-    </div>
 
-    <div
+      <p class="text-red-500">
+        {{ errorMsg }}
+      </p>
+
+      <p class="text-green-500">
+        {{ successMsg }}
+      </p>
+      <button
+        class="block w-full py-3  bg-blue-900 text-center"
+        type="submit"
+        >Login</button>
+        
+
+        <button
+        class="block w-full py-3  bg-blue-900 text-center"
+        @click="loginWithGithub"
+        type="button"
+        >Login with github</button>
+
+    </div>
+  </form>
+
+
+    <form @submit.prevent="signUpNewUser">
+      <div
       class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
       v-if="register"
     >
@@ -144,27 +171,43 @@
         <label for="email" class="text-blue-900">Email</label>
         <input
           type="email"
-          class="h-8 w-full mb-4 rounded-lg focus:outline-blue-500"
+          class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
+          v-model="signupForm.email"
         />
         <label for="email" class="text-blue-900">Password</label>
         <input
           type="password"
-          class="h-8 w-full mb-4 rounded-lg focus:outline-blue-500"
+          class="h-8 w-full mb-4 px-2  rounded-lg focus:outline-blue-500 bg-white text-black"
+          v-model="signupForm.password"
         />
 
         <label for="email" class="text-blue-900">Confirm password</label>
         <input
           type="password"
-          class="h-8 w-full mb-4 rounded-lg focus:outline-blue-500"
+          class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
         />
       </div>
-      <a
+      <p class="text-red-500">
+        {{ errorMsg }}
+      </p>
+
+      <p class="text-green-500">
+        {{ successMsg }}
+      </p>
+      <button
         href="#"
-        @click="register = false"
-        class="block py-3 bg-blue-900 text-center"
-        >Register</a
-      >
+      
+        class="block w-full py-3 bg-blue-900 text-center"
+        type="submit"
+        >Register
+        </button>
+      <!-- @click="register = false" -->
+
+
     </div>
+
+    </form>
+
 
     <div
       class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
@@ -213,9 +256,90 @@
 
 <script setup>
 import { ref } from "vue";
+const supabase = useSupabaseClient()
+const router = useRouter();
+
+const currentRoute = router.currentRoute.value.fullPath;
+
 const showUser = ref(false);
 const showLanguage = ref(false);
 const login = ref(false);
 const register = ref(false);
 const otp = ref(false);
+
+const successMsg = ref(null);
+const errorMsg = ref(null);
+
+const signinForm = ref({
+  email: '',
+  password: ''
+});
+
+const signupForm = ref({
+  email: '',
+  password: ''
+});
+
+async function signUpNewUser() {
+  try {
+    const { data, error } = await supabase.auth.signUp({
+    email: signupForm.value.email,
+    password: signupForm.value.password,
+    options: {
+      redirectTo: 'http://localhost:3000/general-information'
+    }
+  })
+  if(error) {
+    throw error
+  }
+  successMsg.value = "Check your email to check confirm your account."
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
+}
+
+async function loginUser() {
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+    email: signinForm.value.email,
+    password: signinForm.value.password,
+  })
+  if(error) {
+    throw error
+  }
+  router.push("/general-information")
+  successMsg.value = "Check your email to check confirm your account."
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
+}
+
+async function logoutUser() {
+  try {
+    const { data, error } = await supabase.auth.signOut()
+  if(error) {
+    throw error
+  }
+  router.push("/")
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
+}
+
+const loginWithGithub = async () => {
+
+  try {
+    const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'github',
+
+  });
+  if(error) {
+    throw error
+  }
+  router.push("/general-information")
+  successMsg.value = "Check your email to check confirm your account."
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
+};
 </script>
