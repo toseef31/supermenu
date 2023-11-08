@@ -337,7 +337,6 @@ const loginWithGithub = async () => {
     throw error
   }
   router.push("/general-information")
-  successMsg.value = "Check your email to check confirm your account."
   } catch (error) {
     errorMsg.value = error.message;
   }
