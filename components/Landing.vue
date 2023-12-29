@@ -66,11 +66,20 @@
 </template>
 
 <script setup>
+const router = useRouter();
+const currentRoute = ref(router.currentRoute);
+
 useHead({
   title: "Super Menu",
 });
 const switchLocalePath = useSwitchLocalePath();
 const { locales } = useI18n();
+
+onBeforeMount(() => {
+  if (currentRoute.value.query.code) {
+    router.push("/general-information");
+  }
+});
 </script>
 
 <style scoped>

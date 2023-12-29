@@ -3,7 +3,7 @@
     <Header />
     <div class="flex flex-nowrap">
       <div
-        class="w-[300px] col-span h-[calc(100vh-176px)] overflow-auto bg-blue-900 hidden md:inline-flex"
+        class="w-[300px] col-span h-[calc(100vh-176px)] overflow-auto bg-[#202F8F] hidden md:inline-flex"
       >
         <ul class="px-2 py-5">
           <li v-for="listItem in sideNavItems">
@@ -80,6 +80,9 @@
 </template>
 
 <script setup lang="ts">
+// definePageMeta({
+//   middleware: ['auth']
+// })
 import { ref, Ref } from "vue";
 const showIt = ref(0);
 const sideNavItems = ref([

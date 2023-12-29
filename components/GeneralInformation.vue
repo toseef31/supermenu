@@ -28,7 +28,7 @@
             <div class="text-3xl text-sky-600 mt-10" v-if="index % 3 !== 0">
               Saudi National Day {{ index }}
             </div>
-
+            
             <div class="flex justify-center" v-if="index % 3 === 0">
               <div
                 role="progressbar"

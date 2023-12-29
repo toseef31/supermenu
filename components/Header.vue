@@ -100,11 +100,11 @@
         href="#"
         class="block px-2 py-1 cursor-pointer"
         @click="(otp = !otp) && (login = false) && (register = false)"
-        :class="{' border-b border-red-400': currentRoute !== '/'}"
+        :class="{ ' border-b border-red-400': currentRoute !== '/' }"
         >OTP</a
       >
       <a
-      v-if="currentRoute !== '/'"
+        v-if="currentRoute !== '/'"
         @click="logoutUser"
         class="block px-2 py-1 cursor-pointer"
         >Logout</a
@@ -119,95 +119,91 @@
     </div>
 
     <form @submit.prevent="loginUser">
-    <div
-      class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
-      v-if="login"
-    >
-      <div class="px-4 py-4">
-        <label for="email" class="text-blue-900">Email</label>
-        <input
-          type="email"
-          class="h-8 w-full px-2 mb-4 rounded-lg focus:outline-blue-500 bg-white text-black"
-          v-model="signinForm.email"
-        />
-        <label for="email" class="text-blue-900">Password</label>
-        <input
-          type="password"
-          class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
-          v-model="signinForm.password"
-        />
-        <a href="#" class="border-b border-black text-black">Forgot password</a>
-      </div>
+      <div
+        class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
+        v-if="login"
+      >
+        <div class="px-4 py-4">
+          <label for="email" class="text-blue-900">Email</label>
+          <input
+            type="email"
+            class="h-8 w-full px-2 mb-4 rounded-lg focus:outline-blue-500 bg-white text-black"
+            v-model="signinForm.email"
+          />
+          <label for="email" class="text-blue-900">Password</label>
+          <input
+            type="password"
+            class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
+            v-model="signinForm.password"
+          />
+          <a href="#" class="border-b border-black text-black"
+            >Forgot password</a
+          >
+        </div>
 
-      <p class="text-red-500">
-        {{ errorMsg }}
-      </p>
+        <p class="text-red-500">
+          {{ errorMsg }}
+        </p>
 
-      <p class="text-green-500">
-        {{ successMsg }}
-      </p>
-      <button
-        class="block w-full py-3  bg-blue-900 text-center"
-        type="submit"
-        >Login</button>
-        
+        <p class="text-green-500">
+          {{ successMsg }}
+        </p>
+        <button class="block w-full py-3 bg-blue-900 text-center" type="submit">
+          Login
+        </button>
 
         <button
-        class="block w-full py-3  bg-blue-900 text-center"
-        @click="loginWithGithub"
-        type="button"
-        >Login with github</button>
-
-    </div>
-  </form>
-
+          class="block w-full py-3 bg-blue-900 text-center"
+          @click="loginWithGithub"
+          type="button"
+        >
+          Login with github
+        </button>
+      </div>
+    </form>
 
     <form @submit.prevent="signUpNewUser">
       <div
-      class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
-      v-if="register"
-    >
-      <div class="px-4 py-4">
-        <label for="email" class="text-blue-900">Email</label>
-        <input
-          type="email"
-          class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
-          v-model="signupForm.email"
-        />
-        <label for="email" class="text-blue-900">Password</label>
-        <input
-          type="password"
-          class="h-8 w-full mb-4 px-2  rounded-lg focus:outline-blue-500 bg-white text-black"
-          v-model="signupForm.password"
-        />
+        class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
+        v-if="register"
+      >
+        <div class="px-4 py-4">
+          <label for="email" class="text-blue-900">Email</label>
+          <input
+            type="email"
+            class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
+            v-model="signupForm.email"
+          />
+          <label for="email" class="text-blue-900">Password</label>
+          <input
+            type="password"
+            class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
+            v-model="signupForm.password"
+          />
 
-        <label for="email" class="text-blue-900">Confirm password</label>
-        <input
-          type="password"
-          class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
-        />
-      </div>
-      <p class="text-red-500">
-        {{ errorMsg }}
-      </p>
+          <label for="email" class="text-blue-900">Confirm password</label>
+          <input
+            type="password"
+            class="h-8 w-full mb-4 px-2 rounded-lg focus:outline-blue-500 bg-white text-black"
+          />
+        </div>
+        <p class="text-red-500">
+          {{ errorMsg }}
+        </p>
 
-      <p class="text-green-500">
-        {{ successMsg }}
-      </p>
-      <button
-        href="#"
-      
-        class="block w-full py-3 bg-blue-900 text-center"
-        type="submit"
-        >Register
+        <p class="text-green-500">
+          {{ successMsg }}
+        </p>
+        <button
+          href="#"
+          class="block w-full py-3 bg-blue-900 text-center"
+          type="submit"
+        >
+          Register
         </button>
-      <!-- @click="register = false" -->
-
-
-    </div>
-
+        <!-- @click="register = false" -->
+      </div>
     </form>
-
 
     <div
       class="absolute right-32 w-1/4 bg-sky-100 text-white hidden md:block"
@@ -256,10 +252,10 @@
 
 <script setup>
 import { ref } from "vue";
-const supabase = useSupabaseClient()
+// const supabase = useSupabaseClient();
 const router = useRouter();
 
-const currentRoute = router.currentRoute.value.fullPath;
+const currentRoute = ref(router.currentRoute.value.fullPath);
 
 const showUser = ref(false);
 const showLanguage = ref(false);
@@ -271,74 +267,101 @@ const successMsg = ref(null);
 const errorMsg = ref(null);
 
 const signinForm = ref({
-  email: '',
-  password: ''
+  email: "",
+  password: "",
 });
 
 const signupForm = ref({
-  email: '',
-  password: ''
+  email: "",
+  password: "",
 });
 
-async function signUpNewUser() {
-  try {
-    const { data, error } = await supabase.auth.signUp({
-    email: signupForm.value.email,
-    password: signupForm.value.password,
-    options: {
-      redirectTo: 'http://localhost:3000/general-information'
-    }
-  })
-  if(error) {
-    throw error
-  }
-  successMsg.value = "Check your email to check confirm your account."
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
+function signUpNewUser() {
+  router.push("/general-information");
+  // redirectTo: "http://localhost:3000/general-information",
 }
 
-async function loginUser() {
-  try {
-    const { data, error } = await supabase.auth.signInWithPassword({
-    email: signinForm.value.email,
-    password: signinForm.value.password,
-  })
-  if(error) {
-    throw error
-  }
-  router.push("/general-information")
-  successMsg.value = "Check your email to check confirm your account."
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
+function loginUser() {
+  router.push("/general-information");
+  console.log("calling");
 }
 
-async function logoutUser() {
-  try {
-    const { data, error } = await supabase.auth.signOut()
-  if(error) {
-    throw error
-  }
-  router.push("/")
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-}
+// async function signUpNewUser() {
+//   try {
+//     const { data, error } = await supabase.auth.signUp({
+//       email: signupForm.value.email,
+//       password: signupForm.value.password,
+//       options: {
+//         redirectTo: "http://localhost:3000/general-information",
+//       },
+//     });
+//     if (error) {
+//       throw error;
+//     }
+//     successMsg.value = "Check your email to check confirm your account.";
+//   } catch (error) {
+//     errorMsg.value = error.message;
+//   }
+// }
 
-const loginWithGithub = async () => {
+// async function loginUser() {
+//   try {
+//     const { data, error } = await supabase.auth.signInWithPassword({
+//       email: signinForm.value.email,
+//       password: signinForm.value.password,
+//     });
+//     if (error) {
+//       throw error;
+//     }
+//     router.push("/general-information");
+//     successMsg.value = "Check your email to check confirm your account.";
+//   } catch (error) {
+//     errorMsg.value = error.message;
+//   }
+// }
 
-  try {
-    const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'github',
+// async function logoutUser() {
+//   try {
+//     const { data, error } = await supabase.auth.signOut();
+//     if (error) {
+//       throw error;
+//     }
+//     router.push("/");
+//     currentRoute.value = "/";
+//   } catch (error) {
+//     errorMsg.value = error.message;
+//   }
+// }
 
-  });
-  if(error) {
-    throw error
-  }
-  router.push("/general-information")
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-};
+// const loginWithGithub = async () => {
+//   try {
+//     const { data, error } = await supabase.auth.signInWithOAuth({
+//       provider: "github",
+//       callbackUrl: "/auth/callback",
+//     });
+//     if (error) {
+//       throw error;
+//     }
+//   } catch (error) {
+//     errorMsg.value = error.message;
+//   }
+// };
+
+// const loginWithGithub = async () => {
+//   try {
+//     const { error } = await supabase.auth.signInWithOAuth({
+//       provider: 'github',
+//       callbackUrl: '/auth/callback', // Update this to match your Supabase configuration
+//     });
+
+//     if (error) {
+//       throw error;
+//     }
+
+//     // The code will reach this point only if the authentication is successful
+//     router.push("/general-information");
+//   } catch (error) {
+//     errorMsg.value = error.message;
+//   }
+// };
 </script>
