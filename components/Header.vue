@@ -151,14 +151,14 @@
         <button class="block w-full py-3 bg-blue-900 text-center" type="submit">
           Login
         </button>
-
+        <!-- 
         <button
           class="block w-full py-3 bg-blue-900 text-center"
           @click="loginWithGithub"
           type="button"
         >
           Login with github
-        </button>
+        </button> -->
       </div>
     </form>
 
@@ -278,12 +278,14 @@ const signupForm = ref({
 
 function signUpNewUser() {
   router.push("/general-information");
+  register.value = false;
   // redirectTo: "http://localhost:3000/general-information",
 }
 
 function loginUser() {
   router.push("/general-information");
   console.log("calling");
+  login.value = false;
 }
 
 // async function signUpNewUser() {
